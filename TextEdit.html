@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Resizable Text Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            background-color: #f5f5f5;
+        }
+
+        #text {
+            width: 400px;
+            height: 200px;
+            border: 2px solid #000;
+            padding: 10px;
+            font-size: 16px;
+            overflow: auto;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        #controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .control-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .button-box {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #red, #green, #blue, #IndianRed, #HotPink, #DeepPink, #DarkOrange, #Orange,
+        #Gold, #Yellow, #DarkKhaki, #Violet, #RebeccaPurple, #Purple, #Indigo,
+        #Lime, #Teal, #DarkTurquoise {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px solid #000;
+        }
+
+        #red { background: red; }
+        #green { background: green; }
+        #blue { background: blue; }
+        #IndianRed { background: IndianRed; }
+        #HotPink { background: HotPink; }
+        #DeepPink { background: DeepPink; }
+        #DarkOrange { background: DarkOrange; }
+        #Orange { background: Orange; }
+        #Gold { background: Gold; }
+        #Yellow { background: Yellow; }
+        #DarkKhaki { background: DarkKhaki; }
+        #Violet { background: Violet; }
+        #RebeccaPurple { background: RebeccaPurple; }
+        #Purple { background: Purple; }
+        #Indigo { background: Indigo; }
+        #Lime { background: Lime; }
+        #Teal { background: Teal; }
+        #DarkTurquoise { background: DarkTurquoise; }
+
+        input[type="number"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 150px;
+        }
+
+        input::placeholder {
+            font-style: italic;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1 contenteditable="true" id="text">Type here...</h1>
+
+    <div id="controls">
+        <!-- Text Color Controls -->
+        <div class="control-box">
+            <p><strong>Change Text Color:</strong></p>
+            <div class="button-box">
+                <button id="red" onclick="changeTextColor('red')"></button>
+                <button id="green" onclick="changeTextColor('green')"></button>
+                <button id="blue" onclick="changeTextColor('blue')"></button>
+                <button id="IndianRed" onclick="changeTextColor('IndianRed')"></button>
+                <button id="HotPink" onclick="changeTextColor('HotPink')"></button>
+                <button id="DeepPink" onclick="changeTextColor('DeepPink')"></button>
+                <button id="DarkOrange" onclick="changeTextColor('DarkOrange')"></button>
+                <button id="Orange" onclick="changeTextColor('Orange')"></button>
+                <button id="Gold" onclick="changeTextColor('Gold')"></button>
+                <button id="Yellow" onclick="changeTextColor('Yellow')"></button>
+                <button id="DarkKhaki" onclick="changeTextColor('DarkKhaki')"></button>
+                <button id="Violet" onclick="changeTextColor('Violet')"></button>
+                <button id="RebeccaPurple" onclick="changeTextColor('RebeccaPurple')"></button>
+                <button id="Purple" onclick="changeTextColor('Purple')"></button>
+                <button id="Indigo" onclick="changeTextColor('Indigo')"></button>
+                <button id="Lime" onclick="changeTextColor('Lime')"></button>
+                <button id="Teal" onclick="changeTextColor('Teal')"></button>
+                <button id="DarkTurquoise" onclick="changeTextColor('DarkTurquoise')"></button>
+            </div>
+        </div>
+
+        <!-- Font Size Controls -->
+        <div class="control-box">
+            <p><strong>Change Font Size:</strong></p>
+            <input type="number" id="fontsize" placeholder="Font size (e.g., 20)">
+            <button onclick="changeFontSize()">Apply Size</button>
+        </div>
+
+        <!-- Font Family Controls -->
+        <div class="control-box">
+            <p><strong>Change Font Family:</strong></p>
+            <div class="button-box">
+                <button onclick="setFontFamily('Times New Roman')">Times New Roman</button>
+                <button onclick="setFontFamily('Arial')">Arial</button>
+                <button onclick="setFontFamily('Courier New')">Courier New</button>
+                <button onclick="setFontFamily('Georgia')">Georgia</button>
+                <button onclick="setFontFamily('Garamond')">Garamond</button>
+                <button onclick="setFontFamily('Palatino Linotype')">Palatino Linotype</button>
+                <button onclick="setFontFamily('Baskerville')">Baskerville</button>
+                <button onclick="setFontFamily('Helvetica')">Helvetica</button>
+                <button onclick="setFontFamily('Verdana')">Verdana</button>
+                <button onclick="setFontFamily('Trebuchet MS')">Trebuchet MS</button>
+                <button onclick="setFontFamily('Courier New')">Courier New</button>
+                <button onclick="setFontFamily('Consolas')">Consolas</button>
+                <button onclick="setFontFamily('Impact')">Impact</button>
+                <button onclick="setFontFamily('Fredoka One')">Fredoka One</button>
+                <button onclick="setFontFamily('Abril Fatface')">Abril Fatface</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Change text color function
+        function changeTextColor(color) {
+            const textBox = document.getElementById("text");
+            textBox.style.color = color;
+        }
+
+        // Change font size function
+        function changeFontSize() {
+            const textBox = document.getElementById("text");
+            const size = document.getElementById("fontsize").value;
+            if (size) {
+                textBox.style.fontSize = size + "px";
+            } else {
+                alert("Please enter a valid font size!");
+            }
+        }
+
+        // Set font family function
+        function setFontFamily(font) {
+            const textBox = document.getElementById("text");
+            textBox.style.fontFamily = font;
+        }
+    </script>
+</body>
+</html>
